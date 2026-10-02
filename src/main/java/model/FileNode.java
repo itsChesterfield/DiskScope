@@ -58,4 +58,14 @@ public class FileNode {
 	public List<FileNode> getList(){
 		return Collections.unmodifiableList(substructure);
 	}
+
+	/**
+	 * Fügt einen neuen FileNode der List hinzu.
+	 * @param fn
+	 * @return fn, damit überprüft werden kann, ob der FileNode hinzugefügt wurde.
+	 */
+	public FileNode addFileNode(FileNode fn){
+		substructure.add(fn);
+		return fn;
+	}
 }
