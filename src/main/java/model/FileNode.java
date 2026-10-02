@@ -63,8 +63,11 @@ public class FileNode {
 	 * Fügt einen neuen FileNode der List hinzu.
 	 * @param fn
 	 * @return fn, damit überprüft werden kann, ob der FileNode hinzugefügt wurde.
+	 * @throws NullPointerException
 	 */
-	public FileNode addFileNode(FileNode fn){
+
+	public FileNode addFileNode(FileNode fn)throws NullPointerException{
+		if(fn == null){throw new NullPointerException("FileNode darf nicht null sein.");}
 		substructure.add(fn);
 		return fn;
 	}
