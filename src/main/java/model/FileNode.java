@@ -1,3 +1,6 @@
+/**
+ * @author Max Danigel
+ */
 package model;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,4 +43,15 @@ public class FileNode {
 		this.fileType = fileType;
 		return path;
 	}
+
+	/**
+	 * Falls eine Datei gefunden wurde, wird ihre Größe dem long Wert size hinzu addiert.
+	 * @param size long Wert den man hinzu addiert.
+	 * @return gibt den hinzu addierten Wert zurück, zum kontrollieren.
+	 */
+	protected long addSize(long size){
+		this.size += size;
+		return size;
+	}
+
 }
