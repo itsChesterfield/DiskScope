@@ -6,15 +6,12 @@ public class FileNode {
 	/**
 	 * pfad speichert wo die Datei / Struktur liegt.
 	 */
-	private String pfad;
+	private String path;
 	/**
-	 * file speichert ob es sich um eine Datei handelt.
+	 * steht fileType auf true ist es eine Datei.
+	 * Steht fileType auf false, ist es ein Verzeichnis
 	 */
-	private boolean file;
-	/**
-	 * directory speucehrt ob es sich um ein Verzeichnis handelt.
-	 */
-	private boolean directory;
+	private boolean fileType;
 	/**
 	 * size speichert die Datei / Verzeichnis Größe.
 	 */
@@ -23,4 +20,24 @@ public class FileNode {
 	 * substructure speichert in eine Liste alle Unterordner und Dateien, von dem angegeben pfad.
 	 */
 	private List<FileNode> substructure = new ArrayList<>();
+
+	public FileNode(String pfad, boolean file, long size){
+		this.path = pfad;
+		this.fileType = file;
+		this.size = size;
+	}
+
+	/**
+	 * Setzt den Dateipfad und überprüft vorher ob der String null ist.
+	 * @param path, ein String für den Dateipfad.
+	 * @param fileType, wird angegeben ob es sich um eine Datei oder ein Verzeichnis handelt.
+	 * @return path, damit man ggf. nochmals kontrollieren kann.
+	 * @throws NullPointerException
+	 */
+	protected String setPath(String path, boolean fileType)throws NullPointerException{
+		if(path.equals(null)) throw new NullPointerException("Es darf kein Path mit dem Wert null eingegeben werden");
+		this.path = path;
+		this.fileType = fileType;
+		return path;
+	}
 }
