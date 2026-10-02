@@ -1,11 +1,10 @@
-/**
- * @author Max Danigel
- */
 package model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+/**
+ * @author Max Danigel
+ */
 public class FileNode {
 	/**
 	 * pfad speichert wo die Datei / Struktur liegt.
@@ -30,24 +29,9 @@ public class FileNode {
 		this.fileType = file;
 		this.size = size;
 	}
-
-	/**
-	 * Setzt den Dateipfad und überprüft vorher ob der String null ist.
-	 * @param path, ein String für den Dateipfad.
-	 * @param fileType, wird angegeben ob es sich um eine Datei oder ein Verzeichnis handelt.
-	 * @return path, damit man ggf. nochmals kontrollieren kann.
-	 * @throws NullPointerException
-	 */
-	protected String setPath(String path, boolean fileType)throws NullPointerException{
-		if(path == null) throw new NullPointerException("Es darf kein Path mit dem Wert null eingegeben werden");
-		this.path = path;
-		this.fileType = fileType;
-		return path;
-	}
-
 	/**
 	 * Falls eine Datei gefunden wurde, wird ihre Größe dem long Wert size hinzu addiert.
-	 * @param size long Wert den man hinzu addiert.
+	 * @param size long Wert den man hinzu addiert will.
 	 * @return gibt den hinzu addierten Wert zurück, zum kontrollieren.
 	 */
 	protected long addSize(long size){
