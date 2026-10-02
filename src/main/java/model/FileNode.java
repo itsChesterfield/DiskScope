@@ -54,4 +54,15 @@ public class FileNode {
 		return size;
 	}
 
+	/**
+	 * gibt den Pfad wieder.
+	 * @return
+	 */
+	protected String getPath(){return path;}
+
+	/**
+	 * gibt die Größe wieder.
+	 * @return
+	 */
+	protected long getSize(){return size;}
 }
