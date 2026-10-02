@@ -39,7 +39,7 @@ public class FileNode {
 	 * @throws NullPointerException
 	 */
 	protected String setPath(String path, boolean fileType)throws NullPointerException{
-		if(path.equals(null)) throw new NullPointerException("Es darf kein Path mit dem Wert null eingegeben werden");
+		if(path == null) throw new NullPointerException("Es darf kein Path mit dem Wert null eingegeben werden");
 		this.path = path;
 		this.fileType = fileType;
 		return path;
