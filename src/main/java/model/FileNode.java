@@ -3,6 +3,7 @@
  */
 package model;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FileNode {
@@ -66,5 +67,11 @@ public class FileNode {
 	 */
 	public long getSize(){return size;}
 
-
+	/**
+	 * Gibt eine View auf die Collection substructure wieder.
+	 * @return
+	 */
+	public List<FileNode> getList(){
+		return Collections.unmodifiableList(substructure);
+	}
 }
