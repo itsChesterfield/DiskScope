@@ -7,23 +7,18 @@ import java.util.List;
  */
 public abstract class FileNode {
 	/**
-	 * pfad speichert wo die Datei / Struktur liegt.
+	 * Speichert einen String für den path, der von den Unterklassen übergeben wird.
 	 */
-	private String path;
+		String path;
+	public FileNode(String path) {
+		this.path = path;
+	}
 
-	private long size;
-	/**
-	 * substructure speichert in eine Liste alle Unterordner und Dateien, von dem angegeben pfad.
-	 */
-	private List<FileNode> substructure = new ArrayList<>();
-
-	public FileNode(String pfad, long size){
-		this.path = pfad;
-		this.size = size;
+	protected FileNode() {
 	}
 
 	/**
-	 * gibt den Pfad wieder.
+	 * Abstrakte Methode, die einen Pfad wieder gibt.
 	 * @return
 	 */
 	public String getPath(){return path;}
