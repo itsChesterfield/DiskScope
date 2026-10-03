@@ -5,38 +5,21 @@ import java.util.List;
 /**
  * @author Max Danigel
  */
-public class FileNode {
+public abstract class FileNode {
 	/**
 	 * pfad speichert wo die Datei / Struktur liegt.
 	 */
 	private String path;
-	/**
-	 * steht fileType auf true ist es eine Datei.
-	 * Steht fileType auf false, ist es ein Verzeichnis
-	 */
-	private boolean fileType;
-	/**
-	 * size speichert die Datei / Verzeichnis Größe.
-	 */
+
 	private long size;
 	/**
 	 * substructure speichert in eine Liste alle Unterordner und Dateien, von dem angegeben pfad.
 	 */
 	private List<FileNode> substructure = new ArrayList<>();
 
-	public FileNode(String pfad, boolean file, long size){
+	public FileNode(String pfad, long size){
 		this.path = pfad;
-		this.fileType = file;
 		this.size = size;
-	}
-	/**
-	 * Falls eine Datei gefunden wurde, wird ihre Größe dem long Wert size hinzu addiert.
-	 * @param size long Wert den man hinzu addiert will.
-	 * @return gibt den hinzu addierten Wert zurück, zum kontrollieren.
-	 */
-	protected long addSize(long size){
-		this.size += size;
-		return size;
 	}
 
 	/**
@@ -46,29 +29,8 @@ public class FileNode {
 	public String getPath(){return path;}
 
 	/**
-	 * gibt die Größe wieder.
+	 * Abstrakte Methode, sie gibt die Größe wieder.
 	 * @return
 	 */
-	public long getSize(){return size;}
-
-	/**
-	 * Gibt eine View auf die Collection substructure wieder.
-	 * @return
-	 */
-	public List<FileNode> getList(){
-		return Collections.unmodifiableList(substructure);
-	}
-
-	/**
-	 * Fügt einen neuen FileNode der List hinzu.
-	 * @param fn
-	 * @return fn, damit überprüft werden kann, ob der FileNode hinzugefügt wurde.
-	 * @throws NullPointerException
-	 */
-
-	public FileNode addFileNode(FileNode fn)throws NullPointerException{
-		if(fn == null){throw new NullPointerException("FileNode darf nicht null sein.");}
-		substructure.add(fn);
-		return fn;
-	}
+	abstract public long getSize();
 }
